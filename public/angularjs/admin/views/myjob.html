@@ -1,0 +1,356 @@
+
+<!-- END PAGE HEADER-->
+<!-- BEGIN MAIN CONTENT -->
+<div class="note note-success note-bordered">
+	<h3>MY POSTING JOB</h3>
+	<p>
+		This site post a lot of fashion and suitable job.
+	</p>
+	<p>
+		For more info please check the <a href="https://github.com/angular-ui/ui-select">official github page</a>
+	</p>
+</div>
+<div ng-controller="MyJobController">
+	<div class="portlet light" >
+
+			<div class="portlet-title">
+				<div class="caption font-green-sharp">
+					<i class="icon-settings font-green-sharp"></i>
+					<span class="caption-subject bold uppercase">MY POSTING JOB</span>
+					<span class="caption-helper hide"></span>
+				</div>
+				<div class="actions">
+					<a class="btn btn-circle btn-icon-only btn-default" href="#">
+						<i class="icon-cloud-upload"></i>
+					</a>
+					<a class="btn btn-circle btn-icon-only btn-default" href="#">
+						<i class="icon-wrench"></i>
+					</a>
+				</div>
+
+			</div>
+			<div >
+				<a href="#" data-target="#add" role="button" class="btn green" data-toggle="modal" style="margin-bottom: 10px">
+					Add Job </a>
+				<div id="add" class="modal fade" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+								<h4 class="modal-title">Post new job</h4>
+							</div>
+							<div class="modal-body form">
+								<form action="#" class="form-horizontal form-row-seperated" enctype="multipart/form-data">
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Job Title</label>
+										<div class="col-sm-8">
+											<div class="input-group">
+												<input type="text"  ng-model= 'currentJobTitle' class="form-control"/>
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Closing Time</label>
+										<div class="col-sm-8">
+
+											<div class="input-group input-medium date date-picker" data-date="2016-07-10" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
+												<input type="text" class="form-control" ng-model= 'currentJobClosingTime' readonly>
+											<span class="input-group-btn">
+											<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+											</span>
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Salary</label>
+										<div class="col-sm-8">
+
+											<div class="input-inline input-medium">
+												<input id="touchspin_demo1" ng-model= 'currentJobSalary' type="text" value="55" name="demo1" class="form-control">
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group last">
+										<label class="col-sm-4 control-label">Type</label>
+										<div class="col-sm-8">
+											<div class="input-group">
+
+												<input type="text"  ng-model= 'currentJobType' class="form-control"/>
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Location</label>
+										<div class="col-sm-8">
+
+											<div class="input-group">
+
+												<input type="text"  ng-model= 'currentJobLocation' name="typeahead_example_2" class="form-control"/>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Country</label>
+										<div class="col-sm-8">
+											<div class="input-group">
+												<span class="input-group-addon">
+												<i class="fa fa-search"></i>
+												</span>
+												<input type="text" id="typeahead_example_modal_2" name="typeahead_example_modal_2" ng-model= 'currentJobCountry' class="form-control"/>
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Job Category</label>
+										<div class="col-sm-8">
+											<div class="input-group">
+
+												<input type="text" ng-model= 'currentJobCategory' class="form-control"/>
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-4">Overview</label>
+										<div class="col-sm-8">
+											<textarea id="maxlength_textarea" class="form-control" maxlength="1000" rows="6"  ng-model='currentJobOverview' placeholder="This textarea has a limit of 225 chars."></textarea>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-4">Attached file</label>
+										<div class="col-sm-8">
+
+											<input type="file" file-model='currentJobfile' style="color: #00a5bb">
+
+										</div>
+									</div>
+
+
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button type="button" ng-click="add()" class="btn btn-primary"><i class="fa fa-check"></i> Save changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="edit" class="modal fade" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+								<h4 class="modal-title">Edit job</h4>
+							</div>
+							<div class="modal-body form">
+								<form action="#" class="form-horizontal form-row-seperated" enctype="multipart/form-data">
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Job Title</label>
+										<div class="col-sm-8">
+											<div class="input-group">
+												<input type="text"  ng-model= 'currentJobTitle' class="form-control"/>
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Closing Time</label>
+										<div class="col-sm-8">
+
+											<div class="input-group input-medium date date-picker" data-date="2016-07-10" data-date-format="yyyy-mm-dd" data-date-viewmode="years">
+												<input type="text" class="form-control" ng-model= 'currentJobClosingTime' readonly>
+											<span class="input-group-btn">
+											<button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+											</span>
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Salary</label>
+										<div class="col-sm-8">
+
+											<div class="input-inline input-medium">
+												<input id="touchspin_demo1" ng-model= 'currentJobSalary' type="text" value="55" name="demo1" class="form-control">
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group last">
+										<label class="col-sm-4 control-label">Type</label>
+										<div class="col-sm-8">
+											<div class="input-group">
+
+												<input type="text"  ng-model= 'currentJobType' class="form-control"/>
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Location</label>
+										<div class="col-sm-8">
+
+											<div class="input-group">
+
+												<input type="text"  ng-model= 'currentJobLocation' name="typeahead_example_2" class="form-control"/>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Country</label>
+										<div class="col-sm-8">
+											<div class="input-group">
+												<span class="input-group-addon">
+												<i class="fa fa-search"></i>
+												</span>
+												<input type="text" id="typeahead_example_modal_2" name="typeahead_example_modal_2" ng-model= 'currentJobCountry' class="form-control"/>
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-4 control-label">Job Category</label>
+										<div class="col-sm-8">
+											<div class="input-group">
+
+												<input type="text" ng-model= 'currentJobCategory' class="form-control"/>
+											</div>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-4">Overview</label>
+										<div class="col-sm-8">
+											<textarea id="maxlength_textarea" class="form-control" maxlength="1000" rows="6"  ng-model='currentJobOverview' placeholder="This textarea has a limit of 225 chars."></textarea>
+
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="control-label col-sm-4">Attached file</label>
+										<div class="col-sm-8">
+
+											<input type="file" file-model='currentJobfile' style="color: #00a5bb">
+
+										</div>
+									</div>
+
+
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button type="button" ng-click="edit(currentJobId)" class="btn btn-primary"><i class="fa fa-check"></i> Save changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="question" class="modal fade" role="dialog" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+								<h4 class="modal-title">Post new job</h4>
+							</div>
+							<div class="modal-body form">
+								<form action="#" class="form-horizontal form-row-seperated" enctype="multipart/form-data">
+									<div class="form-group">
+										<label class="control-label col-sm-4">Question</label>
+										<div class="col-sm-8">
+											<textarea id="maxlength_textarea" class="form-control" maxlength="1000" rows="6"  ng-model='currentQuestion' placeholder="Add question."></textarea>
+
+										</div>
+									</div>
+
+								</form>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button type="button" ng-click="question(currentId)" class="btn btn-primary"><i class="fa fa-check"></i> Save Question</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+
+		<ul>
+			<li  ng-repeat="job in jobs">
+
+				<div class="portlet light bordered">
+					<div class="portlet-title">
+						<div class="caption font-green-sharp">
+							<i class="icon-speech font-green-sharp"></i>
+							<span class="caption-subject bold uppercase" style="font-size: 23px">{{job.jtitle}}</span>
+							<span class="caption-helper" style="font-size: 15px">{{job.jtype}} time job</span>
+						</div>
+						<div class="actions">
+							<a ng-click="load(job.id)" class="btn btn-circle btn-default btn-sm">
+							<i class="fa fa-pencil"></i> Edit </a>
+							<a ng-click="loadq(job.id)"  class="btn btn-circle btn-default btn-sm"  data-toggle="modal" >
+								<i class="fa fa-question-circle"></i> Add Question </a>
+							<a ng-click="delete(job.id)" class="btn btn-circle btn-default btn-sm" >
+							<i class="fa fa-trash-o"></i> Delete </a>
+							<a ng-click="check(job.id)" class="btn btn-circle btn-default btn-sm">
+								<i class="fa fa-check-square-o"></i> Check </a>
+							<a href="javascript:;" class="btn btn-circle btn-default btn-icon-only fullscreen"></a>
+
+						</div>
+					</div>
+
+					<div class="portlet-body">
+						<div class="scroller" style="height:200px" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd" >
+							<div class="caption font-green-sharp">
+								<span class="caption-subject bold uppercase" style="font-size: 20px">Overview</span>
+							</div >
+							<p class="caption font-blue-dark" style="font-size: 16px">
+								{{job.joverview}}</p>
+						</div>
+						<ul class="list-inline">
+							<li class="caption font-green-sharp" style="font-size: 15px">
+								<i class="fa fa-calendar"></i>
+								<a href="javascript:" >
+									job closingtime: {{job.jclosingtime}} </a>
+							</li>
+							<li class="caption font-green-sharp" style="font-size: 15px">
+								<i class="fa fa-usd"></i>
+								<a href="javascript:;">
+									salary: {{job.jsalary}} per month</a>
+							</li>
+						</ul>
+						<ul class="list-inline blog-tags">
+							<li class="caption font-green-sharp" style="font-size: 15px">
+								<i class="fa fa-tags"></i>
+								<a href="javascript:;">
+									category: {{job.jcategory}}</a>
+								<i class="fa fa-users"></i>
+								<a href="javascript:;">
+									country: {{job.jcountry}} </a>
+								<i class="fa fa-institution"></i>
+								<a href="javascript:;">
+									location: {{job.jlocation}} </a>
+								<i class="fa fa-file"></i>
+								<a href="{{job.fileurl}}">
+									attached file </a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</li>
+
+		</ul>
+	</div>
+
+</div>
+<!-- END MAIN CONTENT -->
+<script>
+	ComponentsFormTools.init();
+	ComponentsPickers.init();
+
+</script>
